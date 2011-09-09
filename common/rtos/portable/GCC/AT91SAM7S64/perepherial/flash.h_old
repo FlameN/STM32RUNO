@@ -1,0 +1,32 @@
+#ifndef FLASH_H
+#define FLASH_H
+/*-------------------------------*/
+/* Flash Status Field Definition */
+/*-------------------------------*/
+
+#define 	AT91C_MC_FSR_MVM 		((unsigned int) 0xFF << 8)		// (MC) Status Register GPNVMx: General-purpose NVM Bit Status
+#define 	AT91C_MC_FSR_LOCK 		((unsigned int) 0xFFFF << 16)	// (MC) Status Register LOCKSx: Lock Region x Lock Status
+
+#define	 ERASE_VALUE 		0xFFFFFFFF
+
+/*-----------------------*/
+/* Flash size Definition */
+/*-----------------------*/
+/* 64 Kbytes of Internal High-speed Flash, Organized in 512 Pages of 128 Bytes */
+
+#define  FLASH_PAGE_SIZE_BYTE	128
+#define  FLASH_PAGE_SIZE_LONG	32
+
+//#define  FLASH_LOCK_BITS_SECTOR	16
+//#define  FLASH_SECTOR_PAGE		32
+//#define  FLASH_LOCK_BITS		16    /* 16 lock bits, each protecting 16 sectors of 32 pages*/
+//#define  FLASH_BASE_ADDRESS		0x00100000
+/*------------------------------*/
+/* External function Definition */
+/*------------------------------*/
+/* Flash function */
+extern void AT91F_Flash_Init(void);
+extern int AT91F_Flash_Write( unsigned int Flash_Address ,int size ,unsigned int * buff);
+#endif /* FLASH_H */
+
+
